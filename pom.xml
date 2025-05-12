@@ -7,11 +7,219 @@
     <groupId>com.tiv</groupId>
     <artifactId>easy-red-note</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>easy-red-note-common</module>
+        <module>easy-red-note-coupon</module>
+        <module>easy-red-note-gateway</module>
+        <module>easy-red-note-order</module>
+        <module>easy-red-note-payment</module>
+        <module>easy-red-note-user</module>
+        <module>easy-red-note-product</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- 指定 JDK 版本 -->
+        <java.version>17</java.version>
+        <!-- 指定 SpringBoot 版本 -->
+        <spring.boot.version>2.6.13</spring.boot.version>
+        <!-- 指定 SpringCloud 版本 -->
+        <spring.cloud.version>2021.0.5</spring.cloud.version>
+        <!-- 指定 SpringCloudAlibaba 版本 -->
+        <alibaba.cloud.version>2021.0.6.0</alibaba.cloud.version>
+        <!-- 指定 MybatisPlus 版本, 整合 SpringBoot -->
+        <mybatisplus.boot.starter.version>3.4.0</mybatisplus.boot.starter.version>
+        <!-- 指定 lombok 版本 -->
+        <lombok.version>1.18.36</lombok.version>
+        <!-- 指定公共包版本 -->
+        <commons.lang3.version>3.9</commons.lang3.version>
+        <commons.codec.version>1.15</commons.codec.version>
+        <!-- 指定 swagger 版本 -->
+        <springfox.boot.starter.version>3.0.0</springfox.boot.starter.version>
+        <!-- 指定 docker 打包镜像版本, 后续部署用 -->
+        <docker.image.prefix>easy-red-note</docker.image.prefix>
+        <!-- 指定 hutool 版本 -->
+        <hutool.version>5.8.23</hutool.version>
+        <!-- 指定 fastjson 版本 -->
+        <fastjson.version>2.0.57</fastjson.version>
+        <!-- 指定 caffeine 版本 -->
+        <caffeine.version>2.8.5</caffeine.version>
+        <!-- 指定 guava 版本 -->
+        <guava.version>33.3.0-jre</guava.version>
+        <!-- 指定 jd-hotkey 版本 -->
+        <hotkey.version>0.0.4-SNAPSHOT</hotkey.version>
+        <!-- 指定 buffer-trigger 版本 -->
+        <buffer.trigger.version>0.2.21</buffer.trigger.version>
+        <!-- 指定 mapstruct 版本 -->
+        <mapstruct.version>1.4.1.Final</mapstruct.version>
+        <!-- 指定 HikariCP 版本 -->
+        <hikaricp.version>6.2.1</hikaricp.version>
     </properties>
+
+    <!-- 依赖项版本 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/2.3.3.RELEASE -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-dependencies/Hoxton.SR8 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-alibaba-dependencies/2.2.1.RELEASE -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${alibaba.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- MybatisPlus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatisplus.boot.starter.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok/1.18.16 -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons.lang3.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${commons.codec.version}</version>
+            </dependency>
+            <!-- swagger -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>${springfox.boot.starter.version}</version>
+            </dependency>
+            <!-- hutool -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <!-- fastjson -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <!-- kaptcha -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>kaptcha-spring-boot-starter</artifactId>
+                <version>1.1.0</version>
+            </dependency>
+            <!-- 阿里云 OSS -->
+            <dependency>
+                <groupId>com.aliyun.oss</groupId>
+                <artifactId>aliyun-sdk-oss</artifactId>
+                <version>3.17.4</version>
+            </dependency>
+            <!-- JWT -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>0.7.0</version>
+            </dependency>
+            <!-- redisson -->
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson</artifactId>
+                <version>3.15.5</version>
+            </dependency>
+            <!-- mapstruct -->
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <!-- rocketmq -->
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-spring-boot-starter</artifactId>
+                <version>2.3.1</version>
+            </dependency>
+            <!-- guava -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <!-- caffeine -->
+            <dependency>
+                <groupId>com.github.ben-manes.caffeine</groupId>
+                <artifactId>caffeine</artifactId>
+                <version>${caffeine.version}</version>
+            </dependency>
+            <!-- ehcache -->
+            <dependency>
+                <groupId>org.ehcache</groupId>
+                <artifactId>ehcache</artifactId>
+                <version>3.8.0</version>
+            </dependency>
+            <!-- buffer trigger -->
+            <dependency>
+                <groupId>com.github.phantomthief</groupId>
+                <artifactId>buffer-trigger</artifactId>
+                <version>${buffer.trigger.version}</version>
+            </dependency>
+            <!-- HikariCP https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
+            <dependency>
+                <groupId>com.zaxxer</groupId>
+                <artifactId>HikariCP</artifactId>
+                <version>${hikaricp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.yaml</groupId>
+                <artifactId>snakeyaml</artifactId>
+                <version>1.33</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- springboot 打包 docker 镜像使用 -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.version}</version>
+                <configuration>
+                    <fork>true</fork>
+                    <addResources>true</addResources>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
