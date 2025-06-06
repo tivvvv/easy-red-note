@@ -38,8 +38,7 @@
         <commons.lang3.version>3.9</commons.lang3.version>
         <commons.codec.version>1.15</commons.codec.version>
         <!-- 指定 swagger 版本 -->
-        <knife4j.spring.boot.starter.version>3.0.2</knife4j.spring.boot.starter.version>
-        <knife4j.springdoc.ui.version>3.0.3</knife4j.springdoc.ui.version>
+        <springfox.boot.starter.version>3.0.0</springfox.boot.starter.version>
         <!-- 指定 docker 打包镜像版本, 后续部署用 -->
         <docker.image.prefix>easy-red-note</docker.image.prefix>
         <!-- 指定 hutool 版本 -->
@@ -111,16 +110,11 @@
                 <artifactId>commons-codec</artifactId>
                 <version>${commons.codec.version}</version>
             </dependency>
-            <!-- knife4j -->
+            <!-- swagger -->
             <dependency>
-                <groupId>com.github.xiaoymin</groupId>
-                <artifactId>knife4j-spring-boot-starter</artifactId>
-                <version>${knife4j.spring.boot.starter.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.xiaoymin</groupId>
-                <artifactId>knife4j-springdoc-ui</artifactId>
-                <version>${knife4j.springdoc.ui.version}</version>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>${springfox.boot.starter.version}</version>
             </dependency>
             <!-- hutool -->
             <dependency>
