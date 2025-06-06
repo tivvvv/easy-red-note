@@ -4,12 +4,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.tiv.user.model.UserDO;
 
 /**
- * <p>
- * 用户表 Mapper 接口
- * </p>
- *
- * @author tiv
- * @since 2025-05-27
+ * 用户Mapper
  */
 public interface UserMapper extends BaseMapper<UserDO> {
 

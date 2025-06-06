@@ -10,12 +10,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * <p>
- * 用户表
- * </p>
- *
- * @author tiv
- * @since 2025-05-27
+ * 用户DO
  */
 @Data
 @EqualsAndHashCode(callSuper = false)

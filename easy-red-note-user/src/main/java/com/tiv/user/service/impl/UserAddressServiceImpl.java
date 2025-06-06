@@ -7,12 +7,7 @@ import com.tiv.user.service.UserAddressService;
 import org.springframework.stereotype.Service;
 
 /**
- * <p>
- * 用户收货地址表 服务实现类
- * </p>
- *
- * @author tiv
- * @since 2025-05-27
+ * 用户地址服务实现类
  */
 @Service
 public class UserAddressServiceImpl extends ServiceImpl<UserAddressMapper, UserAddressDO> implements UserAddressService {

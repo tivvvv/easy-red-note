@@ -7,12 +7,7 @@ import com.tiv.user.service.UserService;
 import org.springframework.stereotype.Service;
 
 /**
- * <p>
- * 用户表 服务实现类
- * </p>
- *
- * @author tiv
- * @since 2025-05-27
+ * 用户服务实现类
  */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, UserDO> implements UserService {
